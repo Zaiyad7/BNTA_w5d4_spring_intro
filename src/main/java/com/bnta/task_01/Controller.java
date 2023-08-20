@@ -10,14 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/greeting")
 public class Controller {
 
-    private String name;
+    private Greeting greeting;
 
 
     @GetMapping
     public ResponseEntity<String> getGreeting(){
-        name = "Colin";
-
-        return new ResponseEntity<>("Good afternoon " + name + "!", HttpStatus.OK);
+        this.greeting = new Greeting("Colin", "Daytime");
+        return new ResponseEntity<>("Good afternoon " + greeting.getName() + "!", HttpStatus.OK);
 
     }
 }
